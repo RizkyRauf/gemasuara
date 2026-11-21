@@ -40,9 +40,10 @@ def get_client_credentials():
 def get_auth_url(scopes=None):
     """Buat URL authorisasi TikTok OAuth2."""
     if scopes is None:
-        # video.publish = Direct Post
+        # video.upload  = Upload ke inbox TikTok (draft, lebih aman untuk app review)
+        # video.publish = Direct Post ke profil publik (butuh Direct Post aktif + app review)
         # user.info.basic = info profil dasar
-        scopes = ["video.publish", "user.info.basic"]
+        scopes = ["video.upload", "user.info.basic"]
 
     client_key, _, redirect_uri = get_client_credentials()
     state = secrets.token_urlsafe(16)
