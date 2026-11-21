@@ -5,28 +5,105 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gemasuara - TikTok Content Management</title>
   <style>
-    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; max-width: 720px; margin: 60px auto; padding: 0 20px; color: #1f2937; text-align: center; }
-    h1 { color: #111827; font-size: 2.5em; margin-bottom: 8px; }
-    .tagline { color: #6b7280; font-size: 1.2em; margin-bottom: 40px; }
-    .cta { display: inline-block; background: #111827; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; margin-top: 24px; }
-    footer { margin-top: 80px; font-size: 0.9em; color: #6b7280; }
-    footer a { color: #2563eb; margin: 0 8px; }
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #1f2937; }
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    header { text-align: center; padding: 80px 0 40px; }
+    h1 { color: #111827; font-size: 3em; margin-bottom: 8px; }
+    .tagline { color: #6b7280; font-size: 1.25em; margin-bottom: 32px; }
+    .hero { text-align: center; padding-bottom: 60px; border-bottom: 1px solid #e5e7eb; }
+    .hero p { font-size: 1.1em; color: #4b5563; max-width: 600px; margin: 0 auto 24px; }
+    .cta { display: inline-block; background: #111827; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 500; }
+    section { padding: 60px 0; border-bottom: 1px solid #e5e7eb; }
+    h2 { color: #111827; font-size: 1.8em; margin-bottom: 24px; text-align: center; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 32px; }
+    .feature { background: #f9fafb; padding: 24px; border-radius: 12px; text-align: center; }
+    .feature h3 { margin-top: 0; color: #111827; }
+    .feature p { color: #6b7280; margin-bottom: 0; }
+    .steps { counter-reset: step; list-style: none; padding: 0; margin-top: 32px; }
+    .steps li { position: relative; padding-left: 64px; margin-bottom: 24px; }
+    .steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; width: 40px; height: 40px; background: #111827; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+    .steps li strong { display: block; color: #111827; margin-bottom: 4px; }
+    .steps li span { color: #6b7280; }
+    .contact { text-align: center; }
+    .contact p { color: #6b7280; margin-bottom: 16px; }
+    footer { text-align: center; padding: 40px 0; color: #6b7280; font-size: 0.9em; }
+    footer a { color: #2563eb; margin: 0 8px; text-decoration: none; }
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2em; }
+      .features { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <h1>Gemasuara</h1>
-  <p class="tagline">Manage and organize content for multiple TikTok accounts with ease.</p>
+  <div class="container">
+    <header>
+      <h1>Gemasuara</h1>
+      <p class="tagline">TikTok content management for multi-account creators</p>
+    </header>
 
-  <p>Gemasuara helps creators and social media teams store videos, write captions, track posting status, and publish content through the official TikTok API — all in one structured workflow.</p>
+    <section class="hero">
+      <p>Gemasuara helps creators and social media teams organize video content, prepare captions, track posting status, and publish drafts to TikTok through the official TikTok API — all in one structured workflow.</p>
+      <a href="#contact" class="cta">Get in Touch</a>
+    </section>
 
-  <a href="mailto:hello@gemasuara.id" class="cta">Contact Us</a>
+    <section>
+      <h2>Features</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>Multi-Account</h3>
+          <p>Connect and manage multiple TikTok accounts with simple aliases.</p>
+        </div>
+        <div class="feature">
+          <h3>Content Library</h3>
+          <p>Store videos and captions in structured folders per account.</p>
+        </div>
+        <div class="feature">
+          <h3>Status Tracking</h3>
+          <p>Track content status from draft to ready to posted or failed.</p>
+        </div>
+        <div class="feature">
+          <h3>Easy Upload</h3>
+          <p>Upload videos to TikTok inbox as drafts with a single command.</p>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    <a href="privacy-policy.html">Privacy Policy</a>
-    ·
-    <a href="terms-of-service.html">Terms of Service</a>
-    <br><br>
-    © 2026 Gemasuara
-  </footer>
+    <section>
+      <h2>How It Works</h2>
+      <ol class="steps">
+        <li>
+          <strong>Authenticate</strong>
+          <span>Connect your TikTok accounts securely via Login Kit.</span>
+        </li>
+        <li>
+          <strong>Add Content</strong>
+          <span>Upload videos and write captions for each account.</span>
+        </li>
+        <li>
+          <strong>Review & Ready</strong>
+          <span>Validate content and mark it as ready to post.</span>
+        </li>
+        <li>
+          <strong>Post to TikTok</strong>
+          <span>Send drafts to TikTok inbox for final review and publishing.</span>
+        </li>
+      </ol>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>Have questions about Gemasuara? Reach out to us.</p>
+      <a href="mailto:hello@gemasuara.id" class="cta">hello@gemasuara.id</a>
+    </section>
+
+    <footer>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      ·
+      <a href="terms-of-service.html">Terms of Service</a>
+      <br><br>
+      © 2026 Gemasuara. All rights reserved.
+    </footer>
+  </div>
 </body>
 </html>
