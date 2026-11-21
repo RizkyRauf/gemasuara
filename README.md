@@ -26,7 +26,9 @@ python main.py content summary
 
 1. Salin `.env.example` menjadi `.env`
 2. Isi `TIKTOK_CLIENT_KEY`, `TIKTOK_CLIENT_SECRET`, dan `TIKTOK_REDIRECT_URI`
-3. Jalankan `python main.py auth`
+3. Daftarkan redirect URI `https://rizkyrauf.github.io/gemasuara/callback.html` di dashboard TikTok Developer
+4. Jalankan `python main.py auth`, lalu buka URL yang muncul dan authorize
+5. Copy authorization code dari halaman callback dan paste ke terminal
 
 ## Catatan Keamanan
 
