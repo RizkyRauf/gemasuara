@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TikTok OAuth Callback</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 40px auto; padding: 0 16px; }
+    code { background: #f3f4f6; padding: 4px 8px; border-radius: 4px; word-break: break-all; }
+    .box { background: #f9fafb; border: 1px solid #e5e7eb; padding: 16px; border-radius: 8px; margin-top: 16px; }
+    .error { color: #b91c1c; }
+    .success { color: #047857; }
+  </style>
+</head>
+<body>
+  <h1>TikTok OAuth Callback</h1>
+  <p>Halaman ini menangkap authorization code dari TikTok setelah kamu login.</p>
+  <div id="result" class="box">Memproses...</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    const state = params.get('state');
+    const error = params.get('error');
+    const errorDescription = params.get('error_description');
+
+    const result = document.getElementById('result');
+
+    if (error) {
+      result.innerHTML = `
+        <p class="error"><strong>Error:</strong> ${error}</p>
+        <p>${errorDescription || ''}</p>
+      `;
+    } else if (code) {
+      result.innerHTML = `
+        <p class="success"><strong>Authorization code berhasil didapatkan!</strong></p>
+        <p>State: <code>${state || '-'}</code></p>
+        <p>Code:</p>
+        <code>${code}</code>
+        <p style="margin-top:12px;">Copy code di atas dan paste ke terminal saat menjalankan <code>python main.py auth</code>.</p>
+      `;
+    } else {
+      result.innerHTML = `<p class="error">Tidak ada code atau error di URL. Pastikan ini adalah URL callback dari TikTok.</p>`;
+    }
+  </script>
+</body>
+</html>
